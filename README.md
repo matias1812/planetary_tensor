@@ -27,6 +27,8 @@ El sistema ha sido auditado para alcanzar rigurosos estándares de validación *
 
 - **100% Blindaje contra Fuga de Datos (Data Leakage):** Todos los módulos predictivos operan bajo un estricto horizonte $T+1$ (`shift(-1)`), donde el modelo absorbe la tensión planetaria al cierre para anticipar asimétricamente el comportamiento de la sesión *de mañana*.
 - **Cero Sesgo de "Mirada al Futuro" (Look-Ahead Bias):** Los percentiles y umbrales de tensión ($P_{90}$) no derivan de parámetros globales, sino que son generados causalmente por una función de Rango Percentil Móvil Vectorizada ($\text{window} = 1260$ días / 5 años), respetando el flujo natural del tiempo que enfrenta un operador.
+- **Target Delta (Aceleración sobre Posición Absoluta):** Para erradicar la "inercia perezosa" de la altísima autocorrelación intradiaria, los modelos Ridge de las correlaciones profundas (Deep Scans) no predicen la *posición* del estado macro, sino su *velocidad* o **Delta** ($V \cdot _{t+1} - V \cdot _t$). Esto purga la señal y obliga a la red a aislar la verdadera inercia matemática.
+- **Caza de Cisnes Negros (Ignition Phase):** Los clasificadores asimétricos LogisticCV ignoran los días donde el pánico ya ha detonado. Solo disparan 'exito' al mapear la *fase de ignición*: un alza brusca de la volatilidad masiva condicionada a un ecosistema de pseudo-calma previo.
 - **Autorregresión Libre de Amnesia (AR5 Baseline):** Antes de que a las series temporales de órbitas se les asigne poder predictivo, deben vencer en capacidad de predicción asimétrica a "La Realidad" (un modelo de base Autorregresivo de 5 días incluyendo el precio *spot* de hoy).
 - **Métrica de Excursión Máxima Favorable (MFE 30d):** La viabilidad de las tensiones estructurales lentas se mide sobre una ventana inercial de corto y mediano plazo logísticas, no mediante mediciones cegas punto-a-punto.
 
@@ -70,6 +72,7 @@ python planetary_tensor_analysis.py --start 1990-01-01 --end 2026-04-21 --no-plo
 ```bash
 python plot_pca_dimensions.py
 python plot_liquidity_barcode.py
+python plot_target_delta.py
 python plot_data_leakage.py
 ```
 
