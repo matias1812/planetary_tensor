@@ -1,0 +1,11 @@
+feature,shap_importance
+uranus_pluto_tension,0.5376129
+mercury_mars_tension_lag_22,0.4500995
+mercury_uranus_tension_lag_4,0.41900507
+sun_pluto_tension_lag_28,0.41164175
+moon_pluto_tension_lag_13,0.39071086
+moon_mercury_tension_lag_19,0.35548565
+moon_mars_tension_lag_13,0.28183168
+moon_jupiter_tension_lag_16,0.27342427
+mercury_saturn_tension_lag_25,0.27216116
+sun_neptune_tension_lag_13,0.24672532
